@@ -8,13 +8,16 @@
 返回：[5, 3, 2]
 """
 
+
 class Solution(object):
     def printListReversingly(self, head):
         """
         :type head: ListNode
         :rtype: List[int]
         """
-        return head[::-1]
-
-s = Solution()
-print(s.printListReversingly([1,2,3]))
+        a = list()
+        temp = head
+        while temp:
+            a.append(temp.val)
+            temp = temp.next
+        return a[::-1]
