@@ -17,6 +17,8 @@ return 36 (10 = 3 + 3 + 4)
 def jsz(sz):
     if sz == 1 or sz == 2:
         return 1
+    if sz == 3:
+        return 2
     count = sz//3
     sy = sz%3
     zj = 3
