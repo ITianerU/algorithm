@@ -13,7 +13,7 @@ return 36 (10 = 3 + 3 + 4)
 
 证明：当 n >= 5 时，3(n - 3) - n = 2n - 9 > 0，且 2(n - 2) - n = n - 4 > 0。因此在 n >= 5 的情况下，将绳子剪成一段为 2 或者 3，得到的乘积会更大。又因为 3(n - 3) - 2(n - 2) = n - 5 >= 0，所以剪成一段长度为 3 比长度为 2 得到的乘积更大。
 """
-
+import math
 def jsz(sz):
     if sz == 1 or sz == 2:
         return 1
@@ -21,9 +21,7 @@ def jsz(sz):
         return 2
     count = sz//3
     sy = sz%3
-    zj = 3
-    for i in range(count-1):
-        zj = zj * 3
+    zj = int(math.pow(3, count))
     if sy == 1:
         zj = zj // 3 * 4
     elif sy == 2:
