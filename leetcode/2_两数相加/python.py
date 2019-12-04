@@ -17,6 +17,30 @@ class ListNode(object):
         self.next = None
 
 class Solution(object):
+    def addTwoNumbers2(self, l1, l2):
+        # 进位,两数相加大于等于10 t=1, 小于10 t=0
+        t = 0
+        # 使用两个指针指向同一个对象
+        node = ListNode(0)
+        node2 = node
+        while l1 or l2:
+            a = 0 if l1 == None else l1.val
+            b = 0 if l2 == None else l2.val
+            sum = t + a + b
+            t = 1 if sum >= 10 else 0
+            sum = sum % 10
+            # node指针始终指向链表最后一个元素, node2指向链表头
+            node.next = ListNode(sum)
+            node = node.next
+            if l1 != None:
+                l1 = l1.next
+            if l2 != None:
+                l2 = l2.next
+        # t大于0进位
+        if t > 0:
+            node.next = ListNode(1)
+        return node2.next
+
 
     # 递归解法
     def addTwoNumbers(self, l1, l2):
@@ -45,8 +69,11 @@ class Solution(object):
         node.next = self.reserve(sum // 10)
         return node
 
+
+
+
 if __name__ == '__main__':
     s = Solution()
     node1 = ListNode(0)
     node2 = ListNode(0)
-    s.addTwoNumbers(node1, node2)
+    s.addTwoNumbers2(node1, node2)
