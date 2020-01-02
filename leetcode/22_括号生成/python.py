@@ -15,6 +15,8 @@
 链接：https://leetcode-cn.com/problems/generate-parentheses
 
 """
+from typing import List
+
 
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
